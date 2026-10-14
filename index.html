@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover,user-scalable=no">
+<title>StarCatch</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div id="toast"></div>
+
+<!-- Экран 1: меню -->
+<section id="menu" class="screen active">
+  <div class="card">
+    <h1>StarCatch</h1>
+    <p class="sub">Собирай звёзды быстрее друзей</p>
+    <input id="name" maxlength="12" placeholder="Твоё имя" autocomplete="off">
+    <button id="create" class="btn primary">Создать комнату</button>
+    <div class="or">или войди по коду</div>
+    <div class="row">
+      <input id="code" maxlength="6" placeholder="КОД" autocomplete="off" class="code-in">
+      <button id="join" class="btn">Войти по коду</button>
+    </div>
+  </div>
+</section>
+
+<!-- Экран 2: лобби -->
+<section id="lobby" class="screen">
+  <div class="card">
+    <p class="sub">Код комнаты</p>
+    <div id="roomCode" class="big-code">-----</div>
+    <div class="row">
+      <button id="copyCode" class="btn">Скопировать код</button>
+      <button id="copyLink" class="btn">Скопировать ссылку</button>
+    </div>
+    <ul id="players"></ul>
+    <p id="hint" class="sub"></p>
+    <p class="sub">⚡ ускорение · красные шары отнимают очко и оглушают</p>
+    <div class="row">
+      <button id="ready" class="btn">Готов</button>
+      <button id="start" class="btn primary">Старт</button>
+    </div>
+    <button id="leaveLobby" class="link">Выйти в меню</button>
+    <div id="results" class="results"></div>
+  </div>
+</section>
+
+<!-- Экран 3: игра -->
+<section id="game" class="screen">
+  <div id="hud"><div id="scores"></div><div id="timer">60</div><button id="mute" class="btn small">🔊</button><button id="leaveGame" class="btn small">Выйти в меню</button></div>
+  <div id="stage"><canvas id="cv"></canvas></div>
+  <div id="joy"><div id="knob"></div></div>
+</section>
+<script src="/socket.io/socket.io.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
